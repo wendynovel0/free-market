@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Libre Search</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.4.2/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #cccccc;
+            overflow: auto;
+        }
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        nav {
+            width: 100%;
+            height: 15%;
+            z-index: 10;
+            position: fixed;
+            background-color: #ffe505;
+            top:0;
+            left:0;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .container{
+            margin-top: 100px;
+        }
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            z-index: 0;
+            width: 100%;
+        }
+        .product-card {
+            margin-bottom: 10px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            width: 250px;
+            text-align: center;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .product-title {
+            font-size: 14px;
+            height: 40px;
+            overflow: hidden;
+        }
+        .product-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #292929;
+        }
+
+        #search-form {
+            width: 60%; /* Ajusta el ancho del grupo de entrada */
+        }
+
+        #search-input {
+            flex: 1; /* Permite que el input ocupe todo el espacio disponible dentro del grupo de entrada */
+        }
+
+        .fi{
+            color: #fff;
+            text-shadow: 0px 1px #0013de, 1px 0px #0013de, 0px -1px #0013de, -1px 0px #0013de;
+        }
+        h1{
+            font-family: "Ubuntu", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+            color: #03396c;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1><i class="fi fi-rr-handshake"></i> mercado liberal</h1>
+        <form id="search-form">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search products..." id="search-input">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </form>
+    </nav>
+    <div class="container">
+        <div class="product-list">
+            <div id="results" class="row">
+                <!-- Product cards will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel">Product Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Detailed product info will be displayed here -->
+                    <img id="modal-image" src="" alt="" class="img-fluid mb-3">
+                    <h4 id="modal-title"></h4>
+                    <p id="modal-price" class="product-price"></p>
+                    <div id="modal-info" class="product-info"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="mercadolibre.js"></script>
+</body>
+</html>
+
